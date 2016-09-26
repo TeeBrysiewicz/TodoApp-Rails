@@ -7,7 +7,7 @@ class TodosController < ApplicationController
     @todos = Todo.all
 
     # render json: @todos
-    render json:{todos: @todos}
+    render json: @todos, each_serializer: TodoSerializer
   end
 
   # GET /todos/1
@@ -22,7 +22,8 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     if @todo.save
-      render json: @todo, status: :created, location: @todo
+      # render json: @todo, status: :created, location: @todo
+      render json: @todo, serializer: TodoSerializer
     else
       render json: @todo.errors, status: :unprocessable_entity
     end
