@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Environment Variables
+gem 'dotenv-rails', '~> 0.11.1', :groups => [:development, :test]
+
 # Error Handling in API
 gem 'pry'
 
